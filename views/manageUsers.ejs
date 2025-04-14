@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content=".taskpilot">
+     <meta name="keywords" content=".taskpilot">
+     <meta property="og:image" content="/img/logo.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+   <link rel="stylesheet" href="/css/styles.css">
+  <title>Manage Users</title>
+
+</head>
+<body>
+
+  <div class="nav-main">
+    <div class="nav-container">
+       <nav class="nav" >
+          <div class="nav-logo ">
+            <a href="/content-manager"><img src="/img/logo.svg" align="absmiddle" class="" alt=""></a>
+    
+    
+     
+             <div class="btn-top-container">
+
+                <a href="/content-manager" title="Content Manager">
+                    <div class="btn-btm">
+                       <i class="material-icons-outlined">home</i> Home
+                    </div>
+                  </a>
+
+              <a href="/home" title="Apps">
+              <div class="btn-btm">
+                 <i class="material-icons-outlined">apps</i> View Apps
+              </div>
+            </a>
+              <a href="/logout" title="Logout">
+                 <div class="btn-btm">
+                    <i class="material-icons-outlined">logout</i> 
+                 </div>
+              </a>
+           </div>
+    
+    
+    
+          </div>
+       </nav>
+    </div>
+ </div>
+
+
+
+<div class="home-container">
+<div class="apps-container">
+  <h1 class="title">Manage Users</h1>
+  
+  <% if (typeof error !== 'undefined' && error) { %>
+    <p style="color:red;"><%= error %></p>
+  <% } %>
+  
+  <% if (users && users.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Email</th>
+          <th>Access Level</th>
+          <th>Edit Permissions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(function(user) { %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.department ? user.department.name : 'N/A' %></td>
+            <td><%= user.email %></td>
+            <td><%= user.accessLevel %></td>
+            <td>
+              <a class="btn-update" href="/manage-users/<%= user._id %>/edit"><i class="material-icons-outlined">edit_note</i></a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No users found.</p>
+  <% } %>
+  
+  <br>
+
+
+  <div class="div-content-group scdiv" >
+    <div class="spacer-10"></div>
+    <button class="btn cancel" onclick="location.href='/content-manager'"><i class="material-icons-outlined">arrow_back_ios</i> Go Back</button>
+</div>		
+
+
+
+</div>
+</div>
+</body>
+</html>

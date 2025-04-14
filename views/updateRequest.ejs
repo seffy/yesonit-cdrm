@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content=".taskpilot">
+   <meta name="keywords" content=".taskpilot">
+   <meta property="og:image" content="/img/logo.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+     <link rel="stylesheet" href="/css/styles.css">
+  <title>Update Request</title>
+
+</head>
+<body>
+  <div class="nav-main">
+    <div class="nav-container">
+       <nav class="nav" >
+          <div class="nav-logo ">
+            <a href="/content-manager"><img src="/img/logo.svg" align="absmiddle" class="" alt=""></a>
+    
+    
+     
+             <div class="btn-top-container">
+
+                <a href="/content-manager" title="Content Manager">
+                    <div class="btn-btm">
+                       <i class="material-icons-outlined">home</i> Home
+                    </div>
+                  </a>
+
+              <a href="/home" title="Apps">
+              <div class="btn-btm">
+                 <i class="material-icons-outlined">apps</i> View Apps
+              </div>
+            </a>
+              <a href="/logout" title="Logout">
+                 <div class="btn-btm">
+                    <i class="material-icons-outlined">logout</i> 
+                 </div>
+              </a>
+           </div>
+    
+    
+    
+          </div>
+       </nav>
+    </div>
+ </div>
+
+
+
+<div class="home-container">
+<div class="apps-container">
+    <h2 class="title">Update Request #: <%= request.requestID %> - <%= request.requestTitle %></h2>
+    <div class="bottom-note" style="margin-top: -10px;">Requestor: <%= request.submittedBy %></div>
+    <div class="spacer-10"></div>
+    <!-- Display error message if any -->
+    <% if (typeof error !== 'undefined' && error) { %>
+      <p style="color: red;"><%= error %></p>
+    <% } %>
+
+    <!-- If update is successful, show success message and hide form -->
+    <% if (typeof success !== 'undefined' && success) { %>
+      <p style="color: green; text-align: center; margin-top: 90px;"><%= success %></p>
+ 
+      <div class="spacer-10"></div>
+      <p style="text-align: center;"><button class="btn-return" style="width: 150px; font-size: 16px;" onclick="goBackAndReload()"><i class="material-icons-outlined">arrow_back_ios</i> Go Back</button></p>
+      <script>
+        function goBackAndReload() {
+          // Set a flag in sessionStorage to signal the destination page to reload.
+          sessionStorage.setItem('reloadPage', 'true');
+          // Navigate back two pages.
+          history.go(-2);
+        }
+      </script>
+
+
+
+
+
+    <% } else { %>
+      <!-- Update Form -->
+      <form action="/content/<%= request._id %>/edit" method="POST" enctype="multipart/form-data">
+
+        <div class="div-content-group ">
+          <label>Status:</label>
+          <select name="status" required>
+            <option value="Outstanding" <%= request.status === 'Outstanding' ? 'selected' : '' %>>Outstanding</option>
+            <option value="In Progress" <%= request.status === 'In Progress' ? 'selected' : '' %>>In Progress</option>
+            <option value="Completed" <%= request.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+            <option value="Closed" <%= request.status === 'Closed' ? 'selected' : '' %>>Closed</option>
+          </select><br>
+        </div>
+        
+        <div class="div-content-group hide">
+        <label>Request ID:</label>
+        <input type="text" name="requestID" value="<%= request.requestID %>" readonly><br>
+</div>
+        <div class="div-content-group hide">
+        <label>Submitted by:</label>
+        <input type="text" name="submittedBy" value="<%= request.submittedBy %>" readonly><br>
+</div>
+        <div class="div-content-group ">
+        <label>Request Type:</label>
+        <select name="requestType" required>
+          <% requestTypes.forEach(function(rt) { %>
+            <option value="<%= rt._id %>" <% if(rt._id.toString() === request.requestType.toString()) { %>selected<% } %>>
+              <%= rt.type %>
+            </option>
+          <% }); %>
+        </select><br>
+      </div>
+        <div class="div-content-group ">
+        <label>Request Title:</label>
+        <input type="text" name="requestTitle" value="<%= request.requestTitle %>" required><br>
+        </div>
+        <div class="div-content-group ">
+        <label>Due Date:</label>
+        <input type="date" name="dueDate" value="<%= request.dueDate ? request.dueDate.toISOString().split('T')[0] : '' %>" required><br>
+      </div>
+      <div class="div-content-group ">
+        <label>Point of Contact:</label>
+        <p class="tf-description">Enter the name and/or email of the primary resource for queries regarding this request. If no specific contact is available, leave this field blank.</p>
+        <input type="text" name="pointOfContact" value="<%= request.pointOfContact %>" required><br>
+      </div>
+      <div class="div-content-group ">
+        <label>Details:</label>
+        <p class="tf-description">Provide a detailed description of the request. Include any relevant information that will help in processing the request.</p>
+        <textarea name="details"><%= request.details %></textarea><br>
+      </div>
+
+      
+      <div class="div-content-group ">
+        <label>Assign to:</label>
+        <p class="tf-description">Enter the email of the developer responsible for this request. If you are unsure, leave this field blank.</p>
+        <input type="email" name="assignTo" value="<%= request.assignTo %>"><br>
+      </div>
+      <div class="div-content-group ">
+        <label>Approver:</label>
+        <p class="tf-description">If approval is required before proceeding, enter the approver’s email address. Otherwise, leave this field blank.</p>
+        <input type="email" name="updateApproval" value="<%= request.updateApproval %>"><br>
+      </div>
+      <div class="div-content-group hide">
+        <!-- Optional approval field if needed -->
+        <label>Approval:</label>
+        <input type="text" name="approval" value="<%= request.approval %>"><br>
+      </div>
+      <div class="div-content-group ">
+        <label>Upload New File:</label>
+        <input type="file" name="file"><br>
+      </div>
+
+      <div class="scdiv"  >
+       
+        <button type="submit" class="btn submit"><i class="material-icons-outlined">save</i> Save </button>
+      </div>
+      </form>
+      <div class="scdiv">
+        <button class="btn cancel" onclick="goBackAndReload2() "><i class="material-icons-outlined">arrow_back_ios</i> Go Back</button>
+        <script>
+          function goBackAndReload2() {
+            // Set a flag in sessionStorage to signal the destination page to reload.
+    
+            // Navigate back two pages.
+            history.go(-1);
+          }
+        </script>
+    </div>
+    <% } %>
+
+  </div>
+</div>
+
+</body>
+</html>

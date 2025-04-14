@@ -1,0 +1,47 @@
+@media (max-width: 768px) {
+	
+	.apps-container {
+	width: 95%;
+	
+}
+	
+
+
+  .cards_item {
+width: 100%;
+  
+}
+	
+	.card {
+		width: 100%;
+}
+	
+
+}
+
+
+
+@media (max-width: 960px) {
+	
+	.apps-container {
+	width: 95%;
+	
+}
+	
+	.apps-container-logo {
+	margin-top: 10%;
+}
+	
+
+
+  .cards_item {
+width: 100%;
+  
+}
+	
+	.card {
+		width: 100%;
+}
+	
+
+}

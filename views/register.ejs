@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content=".taskpilot">
+      <meta name="keywords" content=".taskpilot">
+      <meta property="og:image" content="/img/logo.svg">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+    <link rel="stylesheet" href="/css/styles.css">
+	<title>Welcome to .taskpilot</title>
+
+</head>
+<body>
+
+   <div class="nav-main">
+      <div class="nav-container">
+         <nav class="nav" >
+            <div class="nav-logo ">
+              <a href="/content-manager"><img src="/img/logo.svg" align="absmiddle" class="" alt=""></a>
+      
+      
+       
+               <div class="btn-top-container">
+
+                  <a href="/content-manager" title="Content Manager">
+                      <div class="btn-btm">
+                         <i class="material-icons-outlined">home</i> Home
+                      </div>
+                    </a>
+
+                <a href="/home" title="Apps">
+                <div class="btn-btm">
+                   <i class="material-icons-outlined">apps</i> View Apps
+                </div>
+              </a>
+                <a href="/logout" title="Logout">
+                   <div class="btn-btm">
+                      <i class="material-icons-outlined">logout</i> 
+                   </div>
+                </a>
+             </div>
+      
+      
+      
+            </div>
+         </nav>
+      </div>
+   </div>
+
+	<div class="home-container">
+      <div class="reg-container">
+
+	  <div class="spacer-10"></div>
+            <h2 class="title">Add User</h2>
+   <% if (typeof error !== 'undefined') { %>
+        <p style="color:red;"><%= error %></p>
+    <% } %>
+
+			
+		
+	 	             <form action="/register" method="POST"  class="contentRequestForm">
+                     <div class="div-content-group "> 
+                        <label for="name">Full Name</label>
+                        <input required autocomplete="off" type="text" name="name" id="name">
+                   
+                     </div>
+
+
+                     <div class="div-content-group ">
+                        <label>Select Department</label>
+						<select name="department" required>
+            <% departments.forEach(function(dept) { %>
+                <option class="select-option" value="<%= dept._id %>"><%= dept.name %></option>
+            <% }) %>
+        </select>
+						
+						
+                       
+                     </div>	 
+						 
+                     <div class="div-content-group ">
+                        <label for="email">Email Address</label>
+                        <input required autocomplete="off" type="email" name="email" id="email">
+                        
+                     </div>
+
+                     <div class="div-content-group ">
+                        <label >Access Level:</label>
+                     <select name="accessLevel" required>
+                         <option value="Level 1" selected>Level 1</option>
+                         <option value="Level 2">Level 2</option>
+                         <option value="Level 3">Level 3</option>
+                         <option value="Level 4">Level 4</option>
+                         <option value="Level 5">Level 5</option>
+                     </select>
+                    
+                     <br>
+                     </div>
+
+                     <div class="div-content-group ">
+                        <label>Temporary Password</label>	 
+                        <input required autocomplete="off" id="password" name="password" type="password">
+                        
+                     </div>
+                     <div class="div-content-group ">
+                        <label>Confirm Temporary Password</label>	  
+                        <input required autocomplete="off" id="confirmPassword" name="confirmPassword" type="password">
+                      
+                     </div>
+                     <div class="div-content-group scdiv"  >
+                        <button class="btn cancel" onclick="location.href='/content-manager'"><i class="material-icons-outlined">arrow_back_ios</i> Go Back</button>
+                        <button type="submit" class="btn submit"><i class="material-icons-outlined">save</i> Save </button>
+                
+                      </div>
+                  </form>		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+
+			</div>
+		</div>
+</body>
+</html>

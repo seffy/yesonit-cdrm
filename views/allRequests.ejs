@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content=".taskpilot">
+     <meta name="keywords" content=".taskpilot">
+     <meta property="og:image" content="/img/logo.svg">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+       <link rel="stylesheet" href="/css/styles.css">
+  <title>All Submitted Requests</title>
+
+</head>
+<body>
+
+  <div class="nav-main">
+    <div class="nav-container">
+       <nav class="nav" >
+          <div class="nav-logo ">
+            <a href="/content-manager"><img src="/img/logo.svg" align="absmiddle" class="" alt=""></a>
+    
+    
+     
+             <div class="btn-top-container">
+
+                <a href="/content-manager" title="Content Manager">
+                    <div class="btn-btm">
+                       <i class="material-icons-outlined">home</i> Home
+                    </div>
+                  </a>
+
+              <a href="/home" title="Apps">
+              <div class="btn-btm">
+                 <i class="material-icons-outlined">apps</i> View Apps
+              </div>
+            </a>
+              <a href="/logout" title="Logout">
+                 <div class="btn-btm">
+                    <i class="material-icons-outlined">logout</i> 
+                 </div>
+              </a>
+           </div>
+    
+    
+    
+          </div>
+       </nav>
+    </div>
+ </div>
+
+
+<div class="home-container">
+<div class="apps-container">
+
+  <h2 class="title">Manage Content Requests</h2>
+
+
+
+
+  <% if (typeof error !== 'undefined' && error) { %>
+    <p style="color:red;"><%= error %></p>
+  <% } %>
+  
+  <% if (requests && requests.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Request ID</th>
+          <th>Request Title</th>
+          <th>Request Type</th>
+          <th>Submitted by</th>
+          <th>Assigned To</th>
+          <th>Date & Time Submitted</th>
+          <th>Due Date</th>
+          <th>Status</th>
+          <th>View/Update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% requests.forEach(function(request) { %>
+          <tr>
+            <td><%= request.requestID %></td>
+            <td><%= request.requestTitle %></td>
+            <td><%= request.requestType ? request.requestType.type : 'N/A' %></td>
+            <td><%= request.submittedBy %></td>
+            <td><%= request.assignTo || 'N/A' %></td>
+            <td>
+              <% if (request.createdAt) { %>
+                <%= new Date(request.createdAt).toLocaleString() %>
+              <% } else { %>
+                N/A
+              <% } %>
+            </td>
+            <td>
+              <% if (request.dueDate) { %>
+                <%= new Date(request.dueDate).toDateString() %>
+              <% } else { %>
+                N/A
+              <% } %>
+            </td>
+            <td><%= request.status %></td>
+            <td>
+              <form action="/content/<%= request._id %>/edit" method="GET">
+                <button class="btn-sq" type="submit"><i class="material-icons-outlined">edit_note</i></button>
+              </form>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No requests have been submitted yet.</p>
+  <% } %>
+  
+  <br>
+  <div class="div-content-group scdiv" >
+    <div class="spacer-10"></div>
+    <button class="btn cancel" onclick="location.href='/content-manager'"><i class="material-icons-outlined">arrow_back_ios</i> Go Back</button>
+</div>	
+</div></div>
+
+
+
+
+<script>
+  window.addEventListener('pageshow', function (event) {
+    // Check if the flag is set or if the page was loaded from bfcache.
+    if (sessionStorage.getItem('reloadPage') === 'true' || event.persisted) {
+      // Clear the flag to avoid an infinite reload loop.
+      sessionStorage.removeItem('reloadPage');
+      // Reload the page.
+      window.location.reload();
+    }
+  });
+</script>
+
+
+
+</body>
+</html>

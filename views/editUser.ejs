@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content=".taskpilot">
+     <meta name="keywords" content=".taskpilot">
+     <meta property="og:image" content="/img/logo.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+   <link rel="stylesheet" href="/css/styles.css">
+  <title>Edit User</title>
+
+</head>
+<body>
+
+  <div class="nav-main">
+    <div class="nav-container">
+       <nav class="nav" >
+          <div class="nav-logo ">
+            <a href="/content-manager"><img src="/img/logo.svg" align="absmiddle" class="" alt=""></a>
+    
+    
+     
+             <div class="btn-top-container">
+
+                <a href="/content-manager" title="Content Manager">
+                    <div class="btn-btm">
+                       <i class="material-icons-outlined">home</i> Home
+                    </div>
+                  </a>
+
+              <a href="/home" title="Apps">
+              <div class="btn-btm">
+                 <i class="material-icons-outlined">apps</i> View Apps
+              </div>
+            </a>
+              <a href="/logout" title="Logout">
+                 <div class="btn-btm">
+                    <i class="material-icons-outlined">logout</i> 
+                 </div>
+              </a>
+           </div>
+    
+    
+    
+          </div>
+       </nav>
+    </div>
+ </div>
+
+
+
+<div class="home-container">
+<div class="form-container">
+    <h2 class="title">Edit User Profile and Permissions</h2>
+    
+    <% if (typeof error !== 'undefined' && error) { %>
+      <p style="color: red;"><%= error %></p>
+    <% } %>
+    
+    <form action="/manage-users/<%= user._id %>/edit" method="POST">
+
+      <div class="div-content-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="<%= user.name %>" required>
+      </div>
+      <div class="div-content-group">
+      <label for="department">Department:</label>
+      <select id="department" name="department" required>
+        <% departments.forEach(function(dept) { %>
+          <option value="<%= dept._id %>" <%= user.department && user.department._id.toString() === dept._id.toString() ? "selected" : "" %>>
+            <%= dept.name %>
+          </option>
+        <% }); %>
+      </select>
+    </div>
+    <div class="div-content-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="<%= user.email %>" required readonly>
+    </div>
+    <div class="div-content-group">
+      <label for="accessLevel">Access Level:</label>
+      <select id="accessLevel" name="accessLevel" required>
+        <option value="blocked" <%= user.accessLevel === "blocked" ? "selected" : "" %>>Blocked</option>
+        <option value="Level 1" <%= user.accessLevel === "Level 1" ? "selected" : "" %>>Level 1</option>
+        <option value="Level 2" <%= user.accessLevel === "Level 2" ? "selected" : "" %>>Level 2</option>
+        <option value="Level 3" <%= user.accessLevel === "Level 3" ? "selected" : "" %>>Level 3</option>
+        <option value="Level 4" <%= user.accessLevel === "Level 4" ? "selected" : "" %>>Level 4</option>
+        <option value="Level 5" <%= user.accessLevel === "Level 5" ? "selected" : "" %>>Level 5</option>
+      </select>
+    </div>
+ 
+      <div class="div-content-group scdiv"  >
+        <button class="btn cancel" onclick="location.href='/manage-users'"><i class="material-icons-outlined">arrow_back_ios</i> Go Back</button>
+        <button type="submit" class="btn submit"><i class="material-icons-outlined">save</i> Save </button>
+
+      </div>
+    </form>
+    <br>
+
+  </div>
+  </div>
+  
+</body>
+</html>

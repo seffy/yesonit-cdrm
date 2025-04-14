@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content=".taskpilot">
+      <meta name="keywords" content=".taskpilot">
+      <meta property="og:image" content="/img/logo.svg">
+	<title>Admin</title>
+	 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+	 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+		<link rel="stylesheet" href="/css/styles.css">
+    <style>
+      label {
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+    </style>
+</head>
+<body>
+    <div class="nav-main">
+            <div class="nav-container">
+               <nav class="nav" >
+                  <div class="nav-logo ">
+                     <a href="index.html"><img src="/img/logo.svg" align="absmiddle" class="hide" alt=""></a>
+					  
+					  
+						 
+                        <div class="btn-top-container">
+							
+<div>
+		<a href="/logout" title="Logout">					
+		<div class="btn-btm">
+            <i class="material-icons-outlined">logout</i>  
+           
+         </div></a>
+					
+			</div>				
+							
+                        </div>
+                  	
+					  
+					  
+					  
+                  </div>
+               </nav>
+            </div>
+         </div>
+	
+	
+	
+	
+	  <div class="home-container">
+	<div class="apps-container">
+		<div class="title"><div class="logo-admin"></div></div>
+		<div class="spacer-10"></div>
+    <!-- Display messages -->
+    <% if (message) { %>
+        <p style="color:green; text-align: center;"><%= message %></p>
+    <% } %>
+    <% if (error) { %>
+        <p style="color:red; text-align: center;"><%= error %></p>
+    <% } %>
+    <div class="spacer-10"></div>
+    <div class="spacer-10"></div>
+    <section class="app-grid">
+      <div class="app-card">
+        <div class="app-card__icon">
+      
+        </div>
+        <div class="app-card__info">
+          <h3>Add Department</h3>
+          <form action="/admin/addDepartment" method="POST">
+              <label>Enter Department Name:</label>
+              <input type="text" name="departmentName" required>
+              <button class="btn submit" type="submit"><i class="material-icons-outlined">add</i> Add</button>
+          </form>
+        </div>
+      </div>
+      <div class="app-card">
+        <div class="app-card__icon">
+   
+        </div>
+        <div class="app-card__info">
+          <h3>Add Tool</h3>
+          <form action="/admin/addTool" method="POST">
+              <label>Enter Tool Name:</label>
+              <input type="text" name="toolName" required>
+              <button class="btn submit" type="submit"><i class="material-icons-outlined">add</i> Add</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="app-card">
+        <div class="app-card__icon">
+
+        </div>
+        <div class="app-card__info">
+          <h3>Add Request Type</h3>
+          <form action="/admin/addRequestType" method="POST">
+              <label>Enter Request Type:</label>
+              <input type="text" name="requestType" required>
+              <button class="btn submit" type="submit"><i class="material-icons-outlined">add</i> Add</button>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="app-card">
+        <div class="app-card__icon">
+
+        </div>
+        <div class="app-card__info">
+          <h3>Add User Access</h3>
+    <form action="/admin/addUser" method="POST">
+        <label>Enter E-mail:</label>
+        <input type="email" name="email" required>
+        <br>
+        <label>Temp Password:</label>
+        <input type="password" name="tempPassword" required>
+		<br><br>
+    <button class="btn submit" type="submit"><i class="material-icons-outlined">add</i> Add</button>
+    </form>
+        </div>
+      </div>
+
+      </section>
+
+
+<div class="div-content-group scdiv" >
+  <div class="spacer-10"></div>
+  <button class="btn cancel" onclick="location.href='/content-manager'"><i class="material-icons-outlined">arrow_back_ios</i> Go Back</button>
+</div>	
+		</div>
+</div>
+		</body>
+</html>

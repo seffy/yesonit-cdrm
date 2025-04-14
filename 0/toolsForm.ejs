@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tools Access Request Form</title>
+    <script>
+        function toggleForm() {
+            const selection = document.querySelector('input[name="requestFor"]:checked').value;
+            if (selection === 'myself') {
+                document.getElementById('myself-form').style.display = 'block';
+                document.getElementById('someone-else-form').style.display = 'none';
+            } else {
+                document.getElementById('myself-form').style.display = 'none';
+                document.getElementById('someone-else-form').style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Tools Access Request Form</h2>
+    <% if (typeof error !== 'undefined') { %>
+        <p style="color:red;"><%= error %></p>
+    <% } %>
+    <form action="/tools" method="POST">
+        <p>
+            <label>
+                <input type="radio" name="requestFor" value="myself" onchange="toggleForm()" checked>
+                Request for myself
+            </label>
+            <label>
+                <input type="radio" name="requestFor" value="someone else" onchange="toggleForm()">
+                Request for someone else
+            </label>
+        </p>
+        
+        <div id="myself-form">
+            <label>Select Tool:</label>
+            <select name="selectedTool" required>
+                <% tools.forEach(function(tool) { %>
+                    <option value="<%= tool._id %>"><%= tool.name %></option>
+                <% }) %>
+            </select><br>
+            <label>Justification:</label>
+            <textarea name="justification"></textarea><br>
+            <label>Add Approval (Your registered email):</label>
+            <input type="email" name="approval"><br>
+        </div>
+        
+        <div id="someone-else-form" style="display:none;">
+            <label>Requestor's Name:</label>
+            <input type="text" name="requestorName"><br>
+            <label>Employee ID:</label>
+            <input type="text" name="employeeID"><br>
+            <label>Employee Email Address:</label>
+            <input type="email" name="employeeEmail"><br>
+            <label>Select Tool:</label>
+            <select name="tool">
+                <% tools.forEach(function(tool) { %>
+                    <option value="<%= tool._id %>"><%= tool.name %></option>
+                <% }) %>
+            </select><br>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <a href="/home">Back to Home</a>
+    <script>
+        // Initialize form visibility
+        toggleForm();
+    </script>
+</body>
+</html>
