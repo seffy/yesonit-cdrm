@@ -4,9 +4,7 @@ const express = require('express');
 const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
-
-
-
+const fs = require('fs');
 
 
 // Import Mongoose connection (see config/db.js)
@@ -29,30 +27,47 @@ app.use(session({
 }));
 
 // Register routes
-const authRoutes = require('./routes/auth');
-const homeRoutes = require('./routes/home');
-const contentRoutes = require('./routes/content');
-const toolsRoutes = require('./routes/tools');
-const adminRoutes = require('./routes/admin');
-const myRequestsRoutes = require('./routes/myRequests');
-const allRequestsRoutes = require('./routes/allRequests');
-const mainContentRoutes = require('./routes/mainContent');
-const manageUsersRoutes = require('./routes/manageUsers');
+const authRoutes = require('./app/routes/auth');
+const homeRoutes = require('./app/routes/home');
+const adminRoutes = require('./app/routes/admin');
+const manageUsersRoutes = require('./app/routes/manageUsers');
+const secureDownloadRoutes = require('./app/routes/secureDownload');
 
+const contentRoutes = require('./app/modules/cloudContent/routes/content');
+const myRequestsRoutes = require('./app/modules/cloudContent/routes/myRequests');
+const allRequestsRoutes = require('./app/modules/cloudContent/routes/allRequests');
+const mainContentRoutes = require('./app/modules/cloudContent/routes/mainContent');
+
+const setUser = require('./app/middlewares/setUser');
+app.use(setUser);
+
+// Import tools access routes
+const toolsRoutes = require('./app/modules/toolsAccess/routes/tools');
+
+app.use('/download', secureDownloadRoutes);
 app.use('/manage-users', manageUsersRoutes);
 app.use('/content-manager', mainContentRoutes);
 app.use('/admin', adminRoutes);
 app.use('/', authRoutes);
 app.use('/home', homeRoutes);
 app.use('/content', contentRoutes);
-app.use('/tools', toolsRoutes);
-// ... other route usages ...
 app.use('/my-requests', myRequestsRoutes);
 app.use('/all-requests', allRequestsRoutes);
 
+//Tools access routes
+app.use('/tools', toolsRoutes);
+
+
+// Auto-create uploads folder if missing
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir);
+}
+
+
 
 // Start server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3737;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

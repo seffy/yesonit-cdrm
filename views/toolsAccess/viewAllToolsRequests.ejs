@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content=".taskpilot">
+      <meta name="keywords" content=".taskpilot">
+      <meta property="og:image" content="/img/logo.svg">
+	<title>View Requests</title>
+	 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+	 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+		<link rel="stylesheet" href="/css/styles.css">
+
+   
+</head>
+<body>
+		 <div class="nav-main">
+            <div class="nav-container">
+               <nav class="nav" >
+                  <div class="nav-logo ">
+                     <a href="index.html"><img src="/img/logo.svg" align="absmiddle" class="hide" alt=""></a> 
+                        <div class="btn-top-container">						
+<div>
+		<a href="/logout" title="Logout">					
+		<div class="btn-btm">
+            <i class="material-icons-outlined">logout</i>  
+         </div></a>					
+			</div>							
+                        </div>
+                  </div>
+               </nav>
+            </div>
+         </div>
+	  <div class="home-container">
+	<div class="apps-container">
+		<div class="apps-container-logo"><div class="logo-tp"></div></div>
+
+   
+  
+  
+<!-- views/toolsAccess/viewAllToolsRequests.ejs -->
+
+<h1>All Submitted Tools Access Requests</h1>
+
+<% if (requests.length === 0) { %>
+  <p>No requests found.</p>
+<% } else { %>
+  <table border="1" cellpadding="8">
+    <thead>
+      <tr>
+        <th>Request ID</th>
+        <th>Tool Name</th>
+        <th>Request For</th>
+        <th>Submitted By</th>
+        <th>Status</th>
+        <th>Date & Time Submitted</th>
+        <th>View / Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% requests.forEach(request => { %>
+        <tr>
+          <td><%= request.requestID %></td>
+          <td><%= request.toolName %></td>
+          <td><%= request.requestFor %></td>
+          <td><%= request.submittedBy %></td>
+          <td><%= request.status %></td>
+          <td><%= request.createdAt.toLocaleString() %></td>
+          <td>
+            <a href="/tools/<%= request._id %>/edit">View / Update</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>
+
+
+				</div>
+				</div>
+			
+
+</body>
+</html>

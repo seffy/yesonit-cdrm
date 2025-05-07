@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content=".taskpilot">
+     <meta name="keywords" content=".taskpilot">
+     <meta property="og:image" content="/img/logo.svg">
+ <title>Welcome to .taskpilot Content Manager</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+   <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+
+
+  <div class="nav-main">
+    <div class="nav-container">
+       <nav class="nav" >
+          <div class="nav-logo ">
+            <a href="/content-manager"><img src="/img/logo.svg" align="absmiddle" class="" alt=""></a>
+    
+    
+     
+             <div class="btn-top-container">
+
+                <a href="/content-manager" title="Content Manager">
+                    <div class="btn-btm">
+                       <i class="material-icons-outlined">home</i> Home
+                    </div>
+                  </a>
+
+              <a href="/home" title="Apps">
+              <div class="btn-btm">
+                 <i class="material-icons-outlined">apps</i> View Apps
+              </div>
+            </a>
+              <a href="/logout" title="Logout">
+                 <div class="btn-btm">
+                    <i class="material-icons-outlined">logout</i> 
+                 </div>
+              </a>
+           </div>
+    
+    
+    
+          </div>
+       </nav>
+    </div>
+ </div>
+
+
+
+
+<div class="home-container">
+<div class="apps-container">
+<div class="apps-container-logo"><div class="logo-cm"></div></div>
+
+
+
+
+
+    <section class="app-grid">
+    <div class="app-card" onclick="location.href='/content'">
+      <div class="app-card__icon">
+        <i class="material-icons-outlined">add</i> 
+      </div>
+      <div class="app-card__info">
+        <h2>Content Request</h2>
+        <p>Submit or request updates to your existing content.</p>
+            
+      </div>
+    </div>
+
+
+
+
+    <div class="app-card" onclick="location.href='/my-requests'">
+      <div class="app-card__icon">
+        <i class="material-icons-outlined">view_timeline</i>
+      </div>
+      <div class="app-card__info">
+        <h2>My Submission(s)</h2>
+        <p>Track, view, and manage all of your submitted requests.</p>
+    
+      </div>
+    </div>
+
+
+
+    <% if (user && (user.accessLevel === "Level 2" || user.accessLevel === "Level 3" || user.accessLevel === "Level 4" || user.accessLevel === "Level 5")) { %>
+    <div class="app-card" onclick="location.href='/all-requests'">
+      <div class="app-card__icon">
+        <i class="material-icons-outlined">table_view</i>
+      </div>
+      <div class="app-card__info">
+        <h2>Manage All Requests <div class="role">Developer</div></h2>
+        <p>Oversee and review every request in the system.</p>
+      </div>
+    </div>
+    <% } %>
+  </section>
+
+  <% if (user && (user.accessLevel === "Level 3" || user.accessLevel === "Level 4" || user.accessLevel === "Level 5")) { %>
+    <h2 class="app-title" >Other Access</h2>
+    <% } %>
+
+  <section class="app-grid">
+    <% if (user && (user.accessLevel === "Level 4" || user.accessLevel === "Level 5")) { %>
+    <div class="app-card" onclick="location.href='/admin'">
+      <div class="app-card__icon">
+        <i class="material-icons-outlined">admin_panel_settings</i> 
+      </div>
+      <div class="app-card__info">
+        <h2>Admin Panel</h2>
+        <p>Access advanced settings and administrative tools.</p>
+      </div>
+    </div>
+
+    <% } %>
+
+ <% if (user && (user.accessLevel === "Level 3" || user.accessLevel === "Level 4" || user.accessLevel === "Level 5")) { %>
+
+  <div class="app-card" onclick="location.href='/register'">
+    <div class="app-card__icon">
+      <i class="material-icons-outlined">person_add</i> 
+    </div>
+    <div class="app-card__info">
+      <h2>Add New User</h2>
+      <p>Create and configure accounts for new team members.</p>
+    </div>
+  </div>
+
+
+<div class="app-card" onclick="location.href='/manage-users'">
+  <div class="app-card__icon">
+    <i class="material-icons-outlined">manage_accounts</i> 
+  </div>
+  <div class="app-card__info">
+    <h2>Manage Users</h2>
+    <p>Update user profiles, modify permissions, and manage access.</p>
+  </div>
+</div>
+</section>
+<% } %>
+
+
+    <br><br>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  </div>
+</body>
+</html>

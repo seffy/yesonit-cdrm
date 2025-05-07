@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose = require('./config/db'); // Ensure this connects to your MongoDB
-const Department = require('./models/Department');
+const Department = require('./app/models/Department');
 
 async function seedDepartments() {
     try {
