@@ -1,0 +1,717 @@
+@charset 
+	
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* -------------  Core palette ------------- */
+:root {
+  --bg:   #ffffff;
+  --bg-secondary: #f5f5f5;
+--bg-body-secondary: #f5f5f5;
+  --fg:   #1d1d1f;
+  --link: #0066ff;
+	--header: #83BAB6;
+	--border: #d3d3d3;
+	--step:   #636363;
+	  --th: #d3d3d3;
+	--ig-text: #83BAB6;
+  --strong: #004C6B;
+	--pb1: #003C6A;
+	--pb2: #004C6B;
+	--pt1: #04696C;
+	--pt2: #048E6D;
+	--pt3: #06A76E;
+	--pt4: #83BAB6;	
+	--pt5: #BDCBD8;
+	--hero: #04696C;
+    --banner-text: #ffffff;
+	--wfhighlight: #83BAB6;	
+	--wfhighlight2: #BDCBD8;	
+     --whatsnext: #e6e6e6; 
+    --footer: #f8f8f8;
+--text-secondary: #959595;
+    --gray-400-dm: #a6a6a6;
+    --gray-200-dm: #d3d3d3;
+    --gray-100-dm: #e6e6e6;
+    --gray-300-dm: #fff;   /* Almost white */
+    --gray-dark-dm: #343a40;
+		--blue: #007bff;
+	--powderblue: #D9F6FA;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;d
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+	--offwhite: #FAF9F6;
+	--warmwhite: #FBF9F4;
+	--snowwhite: #FFFAFA;
+	--ghostwhite: #F8F8FF;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 1024px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1200px;
+	--myob: #800080; 
+	--myob-r: #B72990; 
+	--myob-accu: #430071; 
+	--highlight-color: #B5D7EF;	
+	--pblue1: #003C6A;
+	--pblue2: #004C6B;
+	--pteal1: #04696C;
+	--pteal3: #06A76E;
+	--pteal2: #048E6D;
+	--pteal4: #83BAB6;
+	--pgray1: #BDCBD8;
+	--grayash: #6c757d;
+	--gray1: #222222;	
+	--gray2: #444444;
+	--gray3: #636363;
+	--gray4: #959595;
+	--gray5: #B3B3B3;
+	--gray6: #E0E0E0;
+	--gray7: #F5F5F5;
+	--gray8: #F9F9F9;
+	--gray-900: #1a1a1a;  /* Almost black */
+    --gray-800: #333333;
+    --gray-700: #4d4d4d;
+    --gray-600: #666666;
+    --gray-500: #808080;  /* Neutral gray */
+    --gray-400: #a6a6a6;
+    --gray-300: #c0c0c0;
+    --gray-200: #d3d3d3;
+    --gray-100: #e6e6e6;
+    --gray-50: #f5f5f5;   /* Almost white */
+    --gray-dark: #343a40;
+	--myob-p1300: #130021;
+    --myob-p1200: #1c002f;
+    --myob-p1100: #24003d;
+    --myob-p1075: #34104c;
+    --myob-p1050: #280f39;
+    --myob-p1025: #421e5a;
+    --myob-p1000: #430071;
+    --myob-p950: #66308a;
+    --myob-p900: #6100a5;
+    --myob-p800: #8118cd;
+    --myob-p700: #a130f5;
+    --myob-p600: #bd54fa;
+    --myob-p550: #c689f2;
+    --myob-p500: #d878ff;
+    --myob-p400: #e399ff;
+    --myob-p300: #efbaff;
+    --myob-p200: #fadbff;
+    --myob-p100: #fef0ff;
+
+
+}
+
+[data-theme="dark"] {
+  --bg:   #101216;
+	--bg-secondary: #161617;
+	--bg-body-secondary: #333333;
+--header: #161617;
+	--border: #333333;
+	--step: #B3B3B3;
+	  --th: #333333;
+  --fg: #cccccc;
+    --banner-text: #ccc;
+	--text-secondary: #808080;
+  --link: #4da2ff;
+  --strong: #666666;
+	--wfhighlight: #1a1a1a;	
+	--wfhighlight2: #1a1a1a;
+	 --footer: #000;
+	--hero: #000;
+    	--ig-text: #04696C;
+        --whatsnext: #1a1a1a;  /* Almost black */
+    --gray-300-dm: #1a1a1a;
+    --gray-200-dm: #4d4d4d;
+    --gray-100-dm: #666666;
+    --gray-50-dm: #808080;  /* Neutral gray */
+	
+}
+
+
+/* Reset & base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Segmented pill container */
+.theme-switcher {
+  display: inline-flex;
+  border: 1px solid var(--pt3);
+  border-radius: 9999px;
+  overflow: hidden;
+  /* adjust margin so it sits nicely in your header */
+  margin-left: 1rem;
+	position: absolute;
+	top: 20px;
+	right: 15px;
+	
+}
+
+/* Each segment button */
+.theme-switcher button {
+  flex: 1;
+  padding: 0.4rem 1rem;
+  background: transparent;
+  border: none;
+  font-size: 0.7rem;
+  cursor: pointer;
+  color: var(--fg);
+  transition: background 0.2s, color 0.2s;
+}
+
+/* The “selected” segment */
+.theme-switcher button[aria-pressed="true"] {
+  background: var(--pt3);
+  color: var(--bg);
+}
+
+/* Hover state for unselected */
+.theme-switcher button:not([aria-pressed="true"]):hover {
+  background: rgba(0,0,0,0.05);
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+
+  color: var(--fg);
+    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+	 overscroll-behavior: none;
+  /* transition: background-color .5s, color .5s; */
+}
+	
+	
+/* Utility container */
+.container {
+  width: min(100% - 2rem, 120ch);
+	margin: 0px auto;
+}
+
+.i-container {
+  width: min(100% - 2rem, 120ch);
+	margin: 0px auto;
+}.i-container-2 { width: min(100% - 2rem, 150ch); margin: 0px auto;}
+
+
+/* Header */
+.site-header {
+    background-color: var(--header);
+  color: var(--fg);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+		z-index: 2147483647;
+}
+
+.i-site-header {
+ 
+  color: var(--fg);
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+.ig-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.ig-logo-highlight {
+  color: var(--pt1);
+}
+
+/* Navigation controls */
+.site-header .nav-controls {
+  
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+
+}
+.site-header .nav-controls select {
+  padding: 0.3rem 0.6rem;
+  margin: 0;
+  border: 1px solid #c7c7cc;
+  border-radius: 6px;
+  background: #fff;
+  color: #1d1d1f;
+}
+.separator {
+  margin: 0 0.6rem;
+  color: #8e8e93;
+}
+.chevron {
+  margin: 0 0.6rem;
+  color: #8e8e93;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+/* Hero banner */
+.hero {
+  background-color: var(--hero);
+  color: var(--banner-text);
+  position: relative;
+  padding: 4rem 0 8rem;
+  overflow: hidden;
+	
+	background-image: url("../img/cover.svg");
+	background-repeat: no-repeat;
+	background-position: center 0;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.hero-text {
+  max-width: 60ch;
+	
+}
+
+
+.hero-text h1 {
+  margin: 0;
+  font-size: 2.75rem;
+  font-weight: 600;
+}
+
+
+.hero-text h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+	color: var(--text-secondary);
+}
+.hero-text p {
+  margin-top: 1rem;
+  opacity: 0.85;
+}
+
+/* Placeholder graphic styling */
+.hero-graphic img {
+  max-width: 400px;
+	width: 100%;
+  opacity: 0.8;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+  /* you can also use position:absolute for full-bleed backgrounds */
+}
+
+.i-hero {
+  background-color: var(--hero);
+	background-image: url("../img/bg-3.svg");
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: cover;
+		background-attachment: fixed;
+	
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+	  padding: 0rem 0 3rem;
+}
+
+.i-hero-text {
+  max-width: 70ch;
+    color: var(--banner-text);
+}
+.i-hero-text h1 {
+  margin: 0;
+  font-size: 2.75rem;
+  font-weight: 600;
+}
+
+
+.i-hero-text h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.i-hero-text p {
+  margin-top: 1rem;
+  opacity: 0.85;
+}
+
+/* Placeholder graphic styling */
+.i-hero-graphic img {
+  max-width: 600px;
+  opacity: 0.8;
+  border-radius: 8px;
+	bottom: -20px;
+	position: absolute;
+
+
+  /* you can also use position:absolute for full-bleed backgrounds */
+}
+
+
+
+
+
+
+
+
+/* Modules Section */
+.modules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+	
+}
+
+.module-card {
+ background-color: var(--bg-body-secondary);
+	color: var(--fg);
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+	cursor: pointer;
+}
+
+.module-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+	color: var(--fg);
+}
+
+.module-card p {
+  font-size: 1rem;
+ color: var(--text-secondary);
+}
+
+/* Hover Effects */
+.module-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Main card overlap */
+main {
+  margin-top: -6rem; /* pull up over hero */
+  padding-bottom: 4rem;
+  position: relative;
+  z-index: 10;
+}
+.container-card {
+  background-color: var(--bg);
+  border-radius: 12px;
+  padding: 0.1rem 2rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+	margin-top: -50px;
+}
+
+.i-container-card {
+  background-color: var(--bg);
+  border-radius: 12px;
+  padding: 0.1rem 2rem;
+	margin-top: -50px;
+
+}
+.container-card h2 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+   color: var(--fg);
+}
+.container-card p {
+  margin-top: 1rem;
+}
+.container-card ul {
+  margin: 1rem 0 0 1.2rem;
+}
+.container-card ul li {
+  margin: 0.5rem 0;
+}
+
+/* Alert box */
+.alert-card {
+  border: 1px solid #c6900b;
+	  background: var(--bg);
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  margin: 2rem 0;
+	
+	 position: relative; 
+}
+.alert-card strong {
+
+  margin-bottom: 0.5rem;
+}
+
+
+
+
+
+/* Hero banner */
+.walk-col {
+  position: relative;
+  padding: 1rem 2rem 2rem;
+  overflow: hidden;
+    
+        background-color: var(--gray-300-dm);
+    border-radius: 12px;
+    margin-bottom: 20px;
+
+}
+.walk-col-hero-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.walk-col-hero-text {
+  max-width: 85ch;
+}
+.walk-col-hero-text h1 {
+  margin: 0;
+  font-size: 2.75rem;
+  font-weight: 600;
+}
+
+.walk-col-hero-text h3, .walk-col-hero-text-no-image h3 {
+	color: var(--step);
+}
+.walk-col-hero-text h2, .walk-col-hero-text-no-image h2 {
+	margin-top: 0.5rem;
+}
+
+/* Placeholder graphic styling */
+.walk-col-hero-graphic img {
+  max-width: 460px;
+	min-width: 100%;
+  opacity: 0.8;
+  border-radius: 8px;
+
+
+  /* you can also use position:absolute for full-bleed backgrounds */
+}
+
+
+
+.walk-col-hero-text-no-image {
+  max-width: 100%;
+}
+
+
+
+/* Container */
+.dropdown {
+  visibility: hidden;
+  position: relative;
+  width: 350px;              /* adjust as needed */
+  font-family: sans-serif;
+  font-size: 14px;
+		font-weight: 600;
+	z-index: 500px;
+	
+	
+
+	
+}
+
+.dropdown p {
+	margin-left: 10px;
+	font-size: 13px;
+	border-bottom: 1px solid var(--border);
+	padding-bottom: 8px;
+}
+
+/* Hide the default arrow */
+.dropdown summary {
+	width: 250px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 1rem;
+  margin: 0;
+  background: var(--bg);
+  border: 1px solid #e1e1e5;
+  border-radius: 50px;
+  cursor: pointer;
+  color: var(--fg);
+    
+    
+	    font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+	font-weight: 600;
+
+  
+}
+/* Remove default marker in WebKit */
+.dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom arrow */
+.dropdown summary::after {
+  content: "▼";
+  font-size: 0.8rem;
+  color: var(--fg);
+  transition: transform 0.3s ease;
+}
+/* Flip arrow when open */
+.dropdown[open] summary::after {
+  transform: rotate(-180deg);
+}
+
+/* The dropdown menu */
+.dropdown ul {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--bg);
+  border: 1px solid #e1e1e5;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  min-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+	 scroll-behavior: smooth;
+
+	
+	
+}
+
+/* Menu items */
+.dropdown ul li a {
+  display: block;
+  padding: 0.70rem 1rem 0.70rem 1.5rem;
+  color: var(--fg);
+  text-decoration: none;
+  transition: background 0.2s;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+
+}
+.dropdown ul li a:hover {
+  background-color: var(--pt4);
+
+}
+/* 2) Firefox */
+.dropdown ul {
+  scrollbar-width: thin;               /* “auto” | “thin” | “none” */
+  scrollbar-color: #c7c7cc #f7f7f9; /* thumb color | track color */
+}
+
+/* 3) WebKit browsers */
+.dropdown ul::-webkit-scrollbar {
+  width: 6px;
+}
+.dropdown ul::-webkit-scrollbar-track {
+  background: #333;
+  border-radius: 99px;
+}
+.dropdown ul::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 3px;
+  border: 1px solid #333; /* adds a little padding around the thumb */
+}
+.dropdown ul::-webkit-scrollbar-thumb:hover {
+  background-color: #a1a1a6;
+}
+
+
+
+.clickable-image {
+	cursor: pointer;
+	
+}
+
+
+
+.login form{
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+.login form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+.login form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+.login label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.login input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+.login ::placeholder{
+    color: #e5e5e5;
+}
+.login-button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
