@@ -48,7 +48,22 @@ This tool is ideal for:
 - Managers needing internal training resources
 - Any department involved in recurring content creation
 
-## Project Structure - y!onit Content Development Request Manager
+## 📋 Features
+- User Authentication (Login/Logout)
+- Access Control based on user level
+- Submit Tool Access Requests
+- Add Users and Add Tools (Level 3+ only)
+- Dockerized Application
+- Full Kubernetes Deployment with:
+  - Deployment
+  - Service
+  - ConfigMap
+  - Secret
+  - Horizontal Pod Autoscaler (HPA)
+
+---
+
+## 📦 Project Structure - y!onit Content Development Request Manager
 
 ```
 taskpilot
