@@ -1,7 +1,6 @@
 // controllers/adminController.js
 const Department = require('../models/Department');
-const Tool = require('../modules/toolsAccess/models/Tool');
-const RequestType = require('../modules/cloudContent/models/RequestType');
+const RequestType = require('../models/RequestType');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
@@ -22,19 +21,6 @@ exports.addDepartment = async (req, res) => {
     } catch (err) {
         console.error(err);
         res.redirect('/admin?error=Error adding department');
-    }
-};
-
-// Add a new tool
-exports.addTool = async (req, res) => {
-    const { toolName } = req.body;
-    try {
-        const newTool = new Tool({ name: toolName });
-        await newTool.save();
-        res.redirect('/admin?message=Tool added successfully');
-    } catch (err) {
-        console.error(err);
-        res.redirect('/admin?error=Error adding tool');
     }
 };
 

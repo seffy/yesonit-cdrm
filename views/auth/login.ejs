@@ -1,52 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
-       <meta charset="UTF-8">
-	 <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content=".taskpilot">
-      <meta name="keywords" content=".taskpilot">
-      <meta property="og:image" content="/img/logo.svg">
-	<title>Welcome to .taskpilot</title>
-	  <link rel="stylesheet" href="/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YesOnIt!</title>
+  <meta name="description" content="YesOnIt - Tool Access Manager">
+  <meta name="keywords" content="YesOnIt, YesOnIt, YesOnIt, YesOnIt, Tool Access Manager, Tool Access Management">
+  <meta name="author" content="JosephSabana">
+  <meta property="og:image" content="img/cover.png">
+  <meta property="og:title" content="YesOnIt">
+  <meta property="og:description" content="YesOnIt - Tool Access Manager">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+
+	  <link href="css/new-styles.css" rel="stylesheet">
+	  <link href="css/theme.css" rel="stylesheet">
+	<style>
+	
+		body{
+			background-image: url("img/tag.svg");
+			background-repeat: no-repeat;
+      background-position: center 90px;
+
+			background-size: cover;
+			background-color: var(--login-bg);
+			
+			
+		}
+
+input[type="email"], input[type="password"] {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border);
+    color: var(--primary-text);
+
+}
+
+nav {
+     background: none;
+            backdrop-filter: blur(0);
+            
+}
+
+	</style>
+
 </head>
-<body class="bg-2">
-	<div class="overlay"></div>
+  <body>
+      <nav class="nav">
+        <div class="nav-logo">
+	
+        </div>
 
-<div class="login-container">
+		<div class="profile-container">
+			
+			<div class="darkmode-container">
+					<label class="mode-switch">
+ <input type="checkbox" id="darkModeToggle" />
+ <span class="slider"></span>
+</label></div>
 
-<div class="login-form-container">
-  <div class="logo"></div>
-	  <div class="spacer-10"></div>
- 
+</div>
 	
-	
-	
-    <h1 align="center">Content Manager</h1>
-    <div class="spacer-10"></div>
+		      
+		
+		
+    </nav>
+    <div class="yes-login-container">
+      <a href="/" class="no-dec">
+      <img src="img/logo-sym-2t.svg" width="250px;" alt=""></a>
+      <h1>Sign in to Access Manager</h1>
+		
     <% if (typeof error !== 'undefined') { %>
         <p style="color:red;"><%= error %></p>
+            <div class="spacer-10"></div>
     <% } %> 
-    <div class="spacer-10"></div>
-   <form action="/login" method="POST">
-            
-                   <div class="input-group">
-                      <input class="input" required autocomplete="off" type="email" name="email" id="email">
-                      <label class="label" for="email">Email Address</label>
-                   </div>
-                   <div class="input-group"> 
-                      <input class="input" required autocomplete="off" id="password" name="password" type="password">
-                      <label class="label" for="password">Password</label>	  
-                   </div>
-                   <button class="btn-login bg-darkblue" type="submit">Login</button>
-                   <div class="spacer-10"></div>
-                   <p class="bottom-note">Contact your IT Administrator to gain access. </p>
+			 <div class="spacer-10"></div>
+		  <form action="/login" method="POST">
+      <div class="yes-form-group">
+        <input type="email" id="email" name="email" placeholder=" " required>
+        <label for="email">Company E-mail</label>
+      
+      </div>
+      <div class="yes-form-group" id="password-group">
+        <input type="password" id="password" name="password" placeholder=" " required>
+        <label for="password">Password</label>
+      </div>
+      <button class="yes-login-button"  type="submit">Sign In</button>
+		</form>
+		<p class="bottom-note">Contact your IT Administrator to gain access. </p>
+		
+		    </div>
+    
+	  
 
-                </form>
-
-  <div class="spacer-10"></div>
-
+	  
+	  
+  </body>
 	
-	</div>
-	</div>
-</body>
+	<script src="js/theme.js"></script>
+	
 </html>

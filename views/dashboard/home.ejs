@@ -1,91 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content=".taskpilot">
-      <meta name="keywords" content=".taskpilot">
-      <meta property="og:image" content="/img/logo.svg">
-      <title>Welcome to .taskpilot</title>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
-      <link rel="stylesheet" href="/css/styles.css">
-      <link rel="stylesheet" href="/css/views.css">
-   </head>
-   <body class="">
-      <div class="nav-main">
-         <div class="nav-container">
-            <nav class="nav" >
-               <div class="nav-logo ">
-                  <a href="index.html"><img src="../public/img/logo.svg" align="absmiddle" class="hide" alt=""></a>
-                  <div class="btn-top-container">
-                     <div>
-                        <a href="/logout" title="Logout">
-                           <div class="btn-btm">
-                              <i class="material-icons-outlined">logout</i>  
-                           </div>
-                        </a>
-                     </div>
-                  </div>
-               </div>
-            </nav>
-         </div>
-      </div>
-      <div class="home-container">
-         <div class="apps-container">
-            <div class="apps-container-logo">
-               <div class="logo-tp"></div>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>y!on8!</title>
+  <meta name="description" content="y!on8 - Tool Access Manager">
+  <meta name="keywords" content="y!on8, y!on8, y!on8, y!on8, Tool Access Manager, Tool Access Management">
+  <meta name="author" content="JosephSabana">
+  <meta property="og:image" content="img/cover.png">
+  <meta property="og:title" content="y!on8">
+  <meta property="og:description" content="y!on8 - Tool Access Manager">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+
+	  <link href="css/new-styles.css" rel="stylesheet">
+	  <link href="css/theme.css" rel="stylesheet">
+	
+
+</head>
+<body>
+  	<div class="main-con">
+     <%- include('../partials/header') %>
+    <section class="hero container">
+ 
+	 <p><img src="img/logo-sym-2b.svg" style="width:120px!important; margin-bottom: 20px;"  alt=""></p>
+		  <p><img src="img/tag.svg" class="tag-img"  alt=""></p> 
+        <h1>Work Resources.<br>Cloud-Powered Workflows</h1>
+        <p class="tagline">
+            Essential tools for seamless operations
+        </p>
+    </section>
+
+  <div class="container">
+  <ul class="button-group">
+    <li class="active" data-target="all">All</li>
+    <li data-target="myapps">My Apps</li>
+    <li data-target="notsubscribed">Add Ons</li>
+
+  </ul>
+	  
+	  
+	  
+	  
+	
+	</div>
+	
+	   <div class="cards-container">
+        <!-- Card 1 -->
+        <div class="card content-section notsubscribed show">
+            <div class="card-header">
+                <div class="card-logo"><img src="img/svg/login.svg" alt=""></div>
+                <h2> Access Manager</h2>
             </div>
-            <div class="apps-container-title">Select Application:</div>
-            <ul class="cards">
-               <li class="cards_item">
-                  <div class="card bg-offwhite">
-                     <div class="card_content">
-                        <img src="/img/content.svg" alt="Content Manager" class="card_img">
-                        <h5 class="card-title dash">Cloud Content Manager</h5>
-                        <div class="card-text">
-                           <p class="unit"><strong>SIT737 – Cloud Native Application Development</strong></p>
-                           <p>A service request platform designed to streamline content development submissions.</p>
-                           <br>
-                           <p> This module focuses on cloud-native architecture planning, modular service design, and internal workflow documentation.</p>
-                           <br>
-                        </div>
-                        <ul class="list-group">
-                           <a href="/content-manager">
-                              <li class="list-group-item"><i class="material-icons">south_east</i>Open App </li>
-                           </a>
-                        </ul>
-                     </div>
-                  </div>
-               </li>
-               <li class="cards_item">
-                  <div class="card bg-offwhite">
-                     <div class="card_content">
-                        <img src="/img/cube.svg" alt="Content Manager" class="card_img">
-                        <h5 class="card-title dash">Tools Access Request </h5>
-                        <div class="card-text">
-                           <p class="unit"><strong>SIT727 – Cloud Automation Technologies</strong></p>
-                           <p>A lightweight web service that allows employees to submit and track internal tool access requests. </p>
-                           <br>
-                           <p>This module is containerized and deployed using Kubernetes, showcasing cloud automation features such as scaling, secrets management, and CI/CD.</p>
-                        </div>
-                        <ul class="list-group">
-                           <a href="/tools/dashboard">
-                              <li class="list-group-item"><i class="material-icons">south_east</i> Open App</li>
-                           </a>
-                        </ul>
-                     </div>
-                  </div>
-               </li>
-               <li class="cards_item">
-                  <div class=" ">
-                     <div class="card_content">
-                        <h5 class="card-title dash">+ Add </h5>
-                     </div>
-                  </div>
-               </li>
-            </ul>
-         </div>
-      </div>
-   </body>
+            <p class="card-content">
+              Manage internal tool and software access requests.
+          </p>
+            <a href="#" onclick="location.href='/login';" class="cta-button">Open</a>
+			
+			 <div class="card-cover bg-3">
+
+
+        
+       </div>
+            <div class="compatibility">
+				<p><strong>PROJECT</strong><br>SIT 727<br>Cloud Automation Technologies <br> 
+				
+				</p>
+              
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card content-section myapps show">
+            <div class="card-header">
+                <div class="card-logo"><img src="img/svg/receipt.svg" alt=""></div>
+                <h2>Content Request Manager</h2>
+            </div>
+            <p class="card-content">
+               Submit and track requests for L&D, training, or marketing content.
+            </p>
+            <a href="/content-manager" class="cta-button">Open</a>
+			 <div class="card-cover bg-2"></div>
+            <div class="compatibility">
+              <p><strong>PROJECT</strong><br>SIT 737<br>Cloud Native-App Development
+				
+				</p>
+              
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card content-section notsubscribed show">
+            <div class="card-header">
+                <div class="card-logo"><img src="img/svg/aem.svg" alt=""></div>
+                <h2>Asset &amp; Equipment Manager</h2>
+            </div>
+            <p class="card-content">
+                Request, assign, or return physical and digital assets (e.g., laptops, licenses).
+            </p>
+            <a href="#" class="cta-button" style="background-color: darkgray">Start Trial</a>
+			
+					    <div class="card-cover grayscale" align="center">
+<img src="img/svg/aem.svg" width="200px" alt="">
+
+          </div>
+            <div class="compatibility">
+               <p> <strong>Requires Subscription</strong> <br>
+				Plan automatomatically renews for $9.99/month per user until cancelled.</p>
+            </div>
+        </div>
+    
+	        <!-- Card 1 -->
+       <div class="card content-section notsubscribed show">
+            <div class="card-header">
+                <div class="card-logo"><img src="img/svg/license.svg" alt=""></div>
+                <h2>Software License Manager</h2>
+            </div>
+            <p class="card-content">
+              Manages software license access, renewals, and assignment per employee. 
+
+          </p>
+              <a href="#" class="cta-button" style="background-color: darkgray">Request</a>
+					 <div class="card-cover" align="center">
+
+<img src="img/svg/slm.svg" width="200px" alt="">
+
+       </div>
+            <div class="compatibility">
+                 <p><strong>Requires Subscription</strong> <br>
+					 Plan automatomatically renews for $9.99/month per user until cancelled.</p>
+            </div>
+        </div>
+
+    
+
+        <!-- Card 3 -->
+    <div class="card content-section notsubscribed show">
+            <div class="card-header">
+                <div class="card-logo"><img src="img/svg/training.svg" alt=""></div>
+                <h2>Training Request</h2>
+            </div>
+            <p class="card-content">
+                Submit and track requests for training, courses, or workshops.
+            </p>
+               <a href="#" class="cta-button" style="background-color: darkgray">Request</a>
+			 	    <div class="card-cover grayscale" align="center">
+<img src="img/svg/training.svg" width="200px" alt="">
+
+          </div>
+            <div class="compatibility">
+                 <strong>Requires Subscription</strong> <br>
+				Plan automatomatically renews for $9.99/month per user until cancelled.
+            </div>
+        </div>
+    
+		   
+		  
+	
+	
+	
+	
+	</div>
+	
+  <div class="section-bg" style=" margin-top: 8rem;;">
+	
+</div>
+
+
+   </section>	
+
+
+
+
+
+
+
+	<section id="footer-container"></section>
+	    <%- include('../partials/footer') %>
+
+	</div>
+	
+	
+	            <script src="/js/theme.js"></script>
+              <script src="/js/scripts.js"></script>
+	
+
+	
+<script>
+  const buttons = document.querySelectorAll('.button-group li');
+  const sections = document.querySelectorAll('.content-section');
+
+  // Restore previously selected filter from localStorage
+  const savedTarget = localStorage.getItem('selectedTarget') || 'all';
+  updateSelection(savedTarget);
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const target = button.getAttribute('data-target');
+      localStorage.setItem('selectedTarget', target);
+      updateSelection(target);
+    });
+  });
+
+  function updateSelection(target) {
+    // Update active button
+    buttons.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-target') === target);
+    });
+
+    // Show/hide sections
+    sections.forEach(section => {
+      if (target === 'all') {
+        section.classList.add('show');
+      } else {
+        section.classList.toggle('show', section.classList.contains(target));
+      }
+    });
+  }
+</script>
+
+
+
+</body>
 </html>

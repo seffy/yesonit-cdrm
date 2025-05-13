@@ -47,5 +47,5 @@ docker-compose.override.yml
 tmp/
 temp/
 uploads/
-
-node_modules
+node_modules/
+docs/

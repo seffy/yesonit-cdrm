@@ -491,13 +491,29 @@ textarea {
   
   input[type="email"],
   input[type="text"],
+  input[type="file"],
   input[type="password"] {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
+    
+  }
+
+    input[type="file"]{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    
   }
   
-
+.upload-container {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+  align-items: center;     /* Horizontal center */
+  justify-content: center; /* Optional: vertical center if full height */
+  height: 200px;           /* Optional: for vertical centering */
+  gap: 10px;               /* Spacing between label and input */
+}
 
 .input-group {
   font-size: 1.25rem;
@@ -516,6 +532,8 @@ textarea {
   width: 325px;
   border-radius: 10px;
   font-size: 15px;
+
+  
 }
 
 .label {
@@ -549,13 +567,6 @@ textarea {
   padding-inline: 0.3rem;
   color: darkgray;
 }
-
-
-.spacer-10 {
-	height: 10px;
-	
-}
-
 
 
 .select {
@@ -1118,6 +1129,15 @@ button:hover {
   outline: 0px;
 }
 
+.btn-del{
+  width: 40px;
+  height: 40px;
+  background-color: var(--gray-800);
+  border: 0px;
+  outline: 0px;
+}
+
+
 select {
   width: 100%;
   height: 50px;
@@ -1235,6 +1255,7 @@ font-weight: 700;
   font-size: 16px;
   color: #333;
   margin-bottom: 5px;
+   margin-top: 5px;
   display: block;
   text-align: left;
 }
@@ -1344,4 +1365,9 @@ font-weight: 700;
 #option-1:checked:checked ~ .option-1 span,
 #option-2:checked:checked ~ .option-2 span{
   color: #fff;
+}
+
+
+td {
+  color: #000;
 }

@@ -1,65 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content=".taskpilot">
-      <meta name="keywords" content=".taskpilot">
-      <meta property="og:image" content="/img/logo.svg">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
-   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
-    <link rel="stylesheet" href="/css/styles.css">
-	<title>Welcome to .taskpilot</title>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>YesOnIt! Content Development</title>
+    <meta name="description" content="YesOnIt - Tool Content Development">
+    <meta name="keywords" content="YesOnIt, YesOnIt, YesOnIt, YesOnIt, Tool Content Development, Tool Access Management">
+    <meta name="author" content="JosephSabana">
+    <meta property="og:image" content="img/cover.png">
+    <meta property="og:title" content="YesOnIt">
+    <meta property="og:description" content="YesOnIt - Tool Content Development">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+    <link href="/css/new-styles.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main-con">
+     <%- include('../partials/header') %>
+<div style="height: 150vh!important;">
+ <section class="section container" style="">
+  <!--Content-->
+      <div class="container-form">
+            <h3 class="subsection-heading"> Content Development</strong></h3>
+            <h1 class="heading">Add User </h1>
+            <div class="spacer-20"></div>
 
-</head>
-<body>
-
-   <div class="nav-main">
-      <div class="nav-container">
-         <nav class="nav" >
-            <div class="nav-logo ">
-              <a href="/content-manager"><img src="/img/logo.svg" align="absmiddle" class="" alt=""></a>
-      
-      
        
-               <div class="btn-top-container">
-
-                  <a href="/content-manager" title="Content Manager">
-                      <div class="btn-btm">
-                         <i class="material-icons-outlined">home</i> Home
-                      </div>
-                    </a>
-
-                <a href="/home" title="Apps">
-                <div class="btn-btm">
-                   <i class="material-icons-outlined">apps</i> View Apps
-                </div>
-              </a>
-                <a href="/logout" title="Logout">
-                   <div class="btn-btm">
-                      <i class="material-icons-outlined">logout</i> 
-                   </div>
-                </a>
-             </div>
-      
-      
-      
-            </div>
-         </nav>
-      </div>
-   </div>
-
-	<div class="home-container">
-      <div class="reg-container">
-
-	  <div class="spacer-10"></div>
-            <h2 class="title">Add User</h2>
             <% if (typeof success !== 'undefined' && success) { %>
-               <p style="color: green;"><%= success %></p>
+               <p style="color: green; text-align: center;"><%= success %></p>
              <% } %>
              
              <% if (typeof error !== 'undefined' && error) { %>
-               <p style="color: red;"><%= error %></p>
+               <p style="color: red; text-align: center;"><%= error %></p>
              <% } %>
 
 			
@@ -136,6 +109,35 @@
 			
 
 			</div>
-		</div>
+
+
+
+
+        <!--End of Content-->
+</section>
+
+</div>
+  <%- include('../partials/footer') %>
+</div>
+
+
+  
+  <script>
+    window.addEventListener('pageshow', function (event) {
+      // Check if the flag is set or if the page was loaded from bfcache.
+      if (sessionStorage.getItem('reloadPage') === 'true' || event.persisted) {
+        // Clear the flag to avoid an infinite reload loop.
+        sessionStorage.removeItem('reloadPage');
+        // Reload the page.
+        window.location.reload();
+      }
+    });
+  </script>
+
+    <script src="/js/theme.js"></script>
+     <script src="/js/scripts.js"></script>
+  
+</body>
+</html>
 </body>
 </html>

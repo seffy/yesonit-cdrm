@@ -5,7 +5,7 @@ const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-
+const methodOverride = require('method-override');
 
 // Import Mongoose connection (see config/db.js)
 const mongoose = require('./config/db');
@@ -21,10 +21,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
+  secret: process.env.SESSION_SECRET || 'defaultSecret',
+  resave: false,
+  saveUninitialized: true
 }));
+
+app.use(methodOverride('_method'));
 
 // Register routes
 const authRoutes = require('./app/routes/auth');
@@ -33,16 +35,19 @@ const adminRoutes = require('./app/routes/admin');
 const manageUsersRoutes = require('./app/routes/manageUsers');
 const secureDownloadRoutes = require('./app/routes/secureDownload');
 
-const contentRoutes = require('./app/modules/cloudContent/routes/content');
-const myRequestsRoutes = require('./app/modules/cloudContent/routes/myRequests');
-const allRequestsRoutes = require('./app/modules/cloudContent/routes/allRequests');
-const mainContentRoutes = require('./app/modules/cloudContent/routes/mainContent');
+const contentRoutes = require('./app/routes/content');
+const myRequestsRoutes = require('./app/routes/myRequests');
+const allRequestsRoutes = require('./app/routes/allRequests');
+const mainContentRoutes = require('./app/routes/mainContent');
 
 const setUser = require('./app/middlewares/setUser');
 app.use(setUser);
 
+
 // Import tools access routes
-const toolsRoutes = require('./app/modules/toolsAccess/routes/tools');
+// const toolsRoutes = require('./app/modules/toolsAccess/routes/tools');
+
+
 
 app.use('/download', secureDownloadRoutes);
 app.use('/manage-users', manageUsersRoutes);
@@ -54,8 +59,15 @@ app.use('/content', contentRoutes);
 app.use('/my-requests', myRequestsRoutes);
 app.use('/all-requests', allRequestsRoutes);
 
-//Tools access routes
-app.use('/tools', toolsRoutes);
+
+
+app.use(async (req, res, next) => {
+  if (req.session.userId) {
+    res.locals.user = await User.findById(req.session.userId);
+  }
+  next();
+});
+
 
 
 // Auto-create uploads folder if missing
@@ -67,7 +79,7 @@ if (!fs.existsSync(uploadsDir)) {
 
 
 // Start server
-const PORT = process.env.PORT || 3737;
+const PORT = process.env.PORT || 3738;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
