@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: yesonit-cdrm
-        image: australia-southeast1-docker.pkg.dev/sit737-25t1-sabana-47965ad/yesonit-cdrm/yesonit-cdrm:latest
+        image: josabana/yesonit-cdrm:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3739
