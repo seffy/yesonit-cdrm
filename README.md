@@ -66,91 +66,82 @@ This tool is ideal for:
 
 ## 📦 Project Structure - y!onit Content Development Request Manager
 
+
 ```
-taskpilot
+yesonit-cdrm
+├─ .dockerignore
+├─ Dockerfile
+├─ README.md
 ├─ app
 │  ├─ controllers
 │  │  ├─ adminController.js
+│  │  ├─ allRequestsController.js
+│  │  ├─ authController copy.js
 │  │  ├─ authController.js
+│  │  ├─ authControllerx.js
+│  │  ├─ contentController.js
 │  │  ├─ homeController.js
-│  │  └─ manageUsersController.js
+│  │  ├─ mainContentController.js
+│  │  ├─ manageUsersController.js
+│  │  └─ myRequestsController.js
 │  ├─ middlewares
 │  │  ├─ accessControl.js
+│  │  ├─ setUser.js
 │  │  └─ uploadMiddleware.js
 │  ├─ models
+│  │  ├─ ContentRequest.js
 │  │  ├─ Department.js
+│  │  ├─ RequestType.js
 │  │  └─ User.js
-│  ├─ modules
-│  │  ├─ cloudContent
-│  │  │  ├─ controllers
-│  │  │  │  ├─ allRequestsController.js
-│  │  │  │  ├─ contentController.js
-│  │  │  │  ├─ mainContentController.js
-│  │  │  │  └─ myRequestsController.js
-│  │  │  ├─ middlewares
-│  │  │  │  └─ accessControl.js
-│  │  │  ├─ models
-│  │  │  │  ├─ ContentRequest.js
-│  │  │  │  └─ RequestType.js
-│  │  │  ├─ routes
-│  │  │  │  ├─ allRequests.js
-│  │  │  │  ├─ content.js
-│  │  │  │  ├─ mainContent.js
-│  │  │  │  └─ myRequests.js
-│  │  │  └─ views
-│  │  └─ toolsAccess
-│  │     ├─ controllers
-│  │     ├─ models
-│  │     ├─ routes
-│  │     └─ views
 │  └─ routes
 │     ├─ admin.js
+│     ├─ allRequests.js
 │     ├─ auth.js
+│     ├─ content.js
 │     ├─ home.js
+│     ├─ mainContent.js
 │     ├─ manageUsers.js
+│     ├─ myRequests.js
 │     └─ secureDownload.js
 ├─ app.js
 ├─ config
 │  └─ db.js
+├─ k8s
+│  ├─ deployment.yaml
+│  ├─ mongo-secret.yaml
+│  └─ service.yaml
 ├─ package-lock.json
 ├─ package.json
 ├─ public
 │  ├─ css
-│  │  ├─ styles.css
-│  │  └─ views.css
 │  ├─ img
-│  │  ├─ access.svg
-│  │  ├─ admin.svg
-│  │  ├─ bg-1.jpg
-│  │  ├─ bg-2.jpg
-│  │  ├─ cm.svg
-│  │  ├─ content-2.svg
-│  │  ├─ content.svg
-│  │  ├─ cube.svg
-│  │  └─ logo.svg
 │  └─ js
-│     └─ scripts.js
 ├─ seedDepartments.js
-├─ seedTools.js
 └─ views
    ├─ admin
    │  ├─ admin.ejs
    │  ├─ editUser.ejs
    │  └─ manageUsers.ejs
    ├─ auth
+   │  ├─ login-x.ejs
    │  ├─ login.ejs
    │  └─ register.ejs
    ├─ cloudContent
    │  ├─ allRequests.ejs
    │  ├─ contentForm.ejs
+   │  ├─ mainContentPage-x.ejs
    │  ├─ mainContentPage.ejs
    │  ├─ myRequests.ejs
    │  └─ updateRequest.ejs
    ├─ dashboard
    │  └─ home.ejs
-   └─ toolsAccess
+   └─ partials
+      ├─ footer.ejs
+      └─ header.ejs
 
 ```
+
+
 
 --- 
 
@@ -166,3 +157,4 @@ taskpilot
 ---
 
 This architecture ensures that y!on8 is scalable, modular, and ready for future microservice expansion.
+
