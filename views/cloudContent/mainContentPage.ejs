@@ -16,11 +16,12 @@
     <link href="/css/theme.css" rel="stylesheet">
   </head>
   <body>
+         <%- include('../partials/header') %>
     <div class="main-con">
-     <%- include('../partials/header') %>
+
       <section class="hero-left container">
-        <h3 class="subsection-heading"> Content Development Dashboard</strong></h3>
-        <h1 class="heading"> <img src="img/logo-1.svg"  alt="" width="350px" class="hide" > Welcome back, <%= user.name %>!  </h1>
+        <h3 class="subsection-heading">  Welcome back, <%= user.name %>! </h3>
+        <h1 class="heading"> <img src="img/logo-1.svg"  alt="" width="350px" class="hide" >Dashboard </h1>
       </section>
       <section class="cards-container-am">
         <!-- Card 1 -->
@@ -160,7 +161,7 @@
     
     
     
-      <%- include('../partials/footer') %>   
+
     </div>
 
   <script>
@@ -177,6 +178,6 @@
 
     <script src="/js/theme.js"></script>
      <script src="/js/scripts.js"></script>
-
+      <%- include('../partials/footer') %>   
   </body>
 </html>

@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: yesonit-cdrm-app
+  name: yesonit-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: yesonit-cdrm
+      app: yesonit
   template:
     metadata:
       labels:
-        app: yesonit-cdrm
+        app: yesonit
     spec:
       containers:
-      - name: yesonit-cdrm
+      - name: yesonit
         image: australia-southeast1-docker.pkg.dev/sit737-25t1-sabana-47965ad/yesonit-cdrm/yesonit-cdrm:latest
         imagePullPolicy: Always
         ports:

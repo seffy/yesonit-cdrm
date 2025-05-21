@@ -142,17 +142,11 @@ a:hover {
                 grid-template-columns: 1fr;
             }
             
-	 
-            body {
-                padding: 1rem;
+            .main-con {
+              width: 90%;
+              margin: 0 auto;
             }
-	 
-	  nav {
-           
-            background: rgba(var(--nav), 0.8);
-            backdrop-filter: blur(20px);
-        
-         
-        }
+
+
 	 
 }

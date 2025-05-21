@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: yesonit-cdrm-service
+  name: yesonit-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
-    app: yesonit-cdrm
+    app: yesonit
   ports:
     - port: 3739
       targetPort: 3739
-
+      nodePort: 3739
