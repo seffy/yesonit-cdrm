@@ -64,6 +64,79 @@ This tool is ideal for:
 
 ---
 
+# 🛠️ YesOnIt CDRM – Setup & Run Guide
+
+Steps to clone, configure, and run the **YesOnIt Content Development Request Manager** project locally.
+
+---
+
+## 📥 Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/seffy/yesonit-cdrm.git
+cd yesonit-cdrm
+```
+
+---
+
+## 📦 Step 2: Install Dependencies
+
+Make sure you have **Node.js (v16+)** and **npm** installed.
+
+```bash
+npm install
+```
+
+---
+
+## 🔐 Step 3: Create a `.env` File
+
+You’ll need to create a `.env` file in the root directory with the following content:
+
+```env
+PORT=3739
+MONGO_URI=your-mongodb-atlas-uri
+SESSION_SECRET=your-secret-key
+```
+
+> 🔒 Replace the values with your actual credentials.
+
+---
+
+## ▶️ Step 4: Run the Application
+
+```bash
+npm start
+```
+
+Visit the app in your browser at:
+
+```
+http://localhost:3739
+```
+
+---
+
+## 🐳 Optional: Run with Docker (If Installed)
+
+```bash
+docker build -t yesonit-cdrm .
+docker run -p 3739:3739 --env-file .env yesonit-cdrm
+```
+
+---
+
+## 🧪 Testing & Development
+
+You can test features such as:
+- Logging in
+- Submitting a request
+- Viewing and updating submissions
+- Admin features based on access level
+
+---
+
+
 ## 📦 Project Structure - y!onit Content Development Request Manager
 
 
