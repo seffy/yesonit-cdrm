@@ -7,6 +7,6 @@ spec:
   selector:
     app: yesonit-cdrm
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8087
+    - port: 5737
+      targetPort: 5737
+      nodePort: 30007

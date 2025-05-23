@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: yesonit-config
-data:
-  MONGO_URI: mongodb+srv://your-mongodb-uri
-  PORT: "3739"

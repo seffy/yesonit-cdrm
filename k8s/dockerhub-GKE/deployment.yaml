@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: yesonit-app
+  name: yesonit-cdrm-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: yesonit
+      app: yesonit-cdrm
   template:
     metadata:
       labels:
-        app: yesonit
+        app: yesonit-cdrm
     spec:
       containers:
-      - name: yesonit
-        image: australia-southeast1-docker.pkg.dev/sit737-25t1-sabana-47965ad/yesonit-cdrm/yesonit-cdrm:latest
-        imagePullPolicy: Always
+      - name: yesonit-cdrm
+        image: josabana/yesonit-cdrm:latest
         ports:
-        - containerPort: 3739
+        - containerPort: 5737
         env:
         - name: MONGO_URI
           valueFrom:
@@ -30,4 +29,4 @@ spec:
               name: mongo-secret
               key: SESSION_SECRET
         - name: PORT
-          value: "3739"
+          value: "5737"
