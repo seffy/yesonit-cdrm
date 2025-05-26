@@ -1,33 +1,3 @@
-
-
-# y!on8 Platform Overview
-
-`y!on8` (formerly known as TaskPilot, and pronounced “yes, on it”) is a unified, modular, cloud-native platform designed to simplify and automate internal workflows across organizations. It enables teams to manage resource access, content requests, approvals, and operational tasks through scalable, role-based tools—all within a secure and centralized environment.
-
-Each application within y!on8 is built and deployed as an independent microservice, allowing for enhanced scalability, maintainability, and flexibility. The platform integrates seamlessly using a shared frontend UI (EJS), connects to cloud-hosted MongoDB databases, and is deployed using Docker and Kubernetes—making it ideal for small to medium enterprises (SMEs) as well as growing teams.
-
-Whether it’s submitting a content development request, requesting access to enterprise tools, or managing IT asset handovers, y!on8 provides a tailored suite of apps that align with real-world business processes and internal control standards.
-
----
-
-## 🧩 Microservices Within y!on8
-
-Each microservice has:
-- Its own Node.js + Express backend
-- A dedicated MongoDB Atlas database
-- Independent deployment with Docker and Kubernetes
-- Secrets and configuration managed via Kubernetes Secrets & ConfigMaps
-
-| Microservice | Description |
-|--------------|-------------|
-| **Access Manager** | Allows users to request internal tool access, with approval workflow and admin controls. |
-| **Training Request Manager** | Handles employee training/course requests and supervisor approval tracking. |
-| **Content Request Development Manager** | Enables departments to request learning, media, or marketing content. |
-| **Asset & Equipment Manager** | Manages IT asset checkout requests like laptops, monitors, etc. |
-| **Software License Manager** | Tracks and handles requests for software licenses and renewals. |
-
----
-
 # **y!on8** Content Development Request Manager
 
 The **y!on8 Content Development Request Manager** is a core module within the **y!on8** platform.  
@@ -73,8 +43,8 @@ Steps to clone, configure, and run the **YesOnIt Content Development Request Man
 ## 📥 Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/seffy/yesonit-cdrm.git
-cd yesonit-cdrm
+git clone https://github.com/seffy/yeson8-cdrm.git
+cd yeson8-cdrm
 ```
 
 ---
@@ -113,15 +83,6 @@ Visit the app in your browser at:
 
 ```
 http://localhost:8080
-```
-
----
-
-## 🐳 Optional: Run with Docker (If Installed)
-
-```bash
-docker build -t yesonit-cdrm .
-docker run -p 8080:8080 --env-file .env yesonit-cdrm
 ```
 
 ---
@@ -213,8 +174,6 @@ yesonit-cdrm
 
 ```
 
-
-
 --- 
 
 ## 🔐 Cloud-Native Stack
@@ -227,6 +186,4 @@ yesonit-cdrm
 - **Secrets Management**: Kubernetes Secrets & ConfigMaps
 
 ---
-
-This architecture ensures that y!on8 is scalable, modular, and ready for future microservice expansion.
 
