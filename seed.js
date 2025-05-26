@@ -30,14 +30,18 @@ async function seedInitialData() {
                 name: 'John Doe',
                 email: 'admin@yesonit.com',
                 password: hashedPassword,
-                accessLevel: 5,
+                accessLevel: 'Level 5',
                 department: adminDept._id // Associate with Admin department
             });
 
             await newUser.save();
             console.log('Admin user created and assigned to Admin department.');
+            console.log('The test username is: admin@yesonit.com');
+            console.log('The temp password is: admin@123');
         } else {
             console.log('Admin user already exists.');
+            console.log('The test username is: admin@yesonit.com');
+            console.log('The temp password is: admin@123');
         }
 
         process.exit(0);

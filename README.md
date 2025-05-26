@@ -94,7 +94,7 @@ npm install
 You’ll need to create a `.env` file in the root directory with the following content:
 
 ```env
-PORT=3739
+PORT=8080
 MONGO_URI=your-mongodb-atlas-uri
 SESSION_SECRET=your-secret-key
 ```
@@ -112,7 +112,7 @@ npm start
 Visit the app in your browser at:
 
 ```
-http://localhost:3739
+http://localhost:8080
 ```
 
 ---
@@ -121,7 +121,7 @@ http://localhost:3739
 
 ```bash
 docker build -t yesonit-cdrm .
-docker run -p 3739:3739 --env-file .env yesonit-cdrm
+docker run -p 8080:8080 --env-file .env yesonit-cdrm
 ```
 
 ---
@@ -196,7 +196,6 @@ yesonit-cdrm
    │  ├─ editUser.ejs
    │  └─ manageUsers.ejs
    ├─ auth
-   │  ├─ login-x.ejs
    │  ├─ login.ejs
    │  └─ register.ejs
    ├─ cloudContent

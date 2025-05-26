@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: yesonit-cdrm-app
+  name: yeson8-cdrm-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: yesonit-cdrm
+      app: yeson8-cdrm
   template:
     metadata:
       labels:
-        app: yesonit-cdrm
+        app: yeson8-cdrm
     spec:
       containers:
-        - name: yesonit-cdrm
-          image: josabana/yesonit-cdrm:latest
+        - name: yeson8-cdrm
+          image: australia-southeast1-docker.pkg.dev/radiant-destiny-435817-a8/yeson8-cdrm/yeson8-cdrm:latest
           ports:
-            - containerPort: 5737
+            - containerPort: 8080
           resources:
             requests:
-              cpu: "100m"
+              cpu: 250m
+              memory: 512Mi
             limits:
-              cpu: "200m"
+              cpu: 500m
+              memory: 1Gi
           env:
-            - name: PORT
-              value: "5737"
             - name: MONGO_URI
               valueFrom:
                 secretKeyRef:
@@ -35,3 +35,5 @@ spec:
                 secretKeyRef:
                   name: mongo-secret
                   key: SESSION_SECRET
+      imagePullSecrets:
+        - name: regcred
